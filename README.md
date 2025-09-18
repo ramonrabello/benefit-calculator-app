@@ -150,5 +150,5 @@ Este projeto demonstra uma arquitetura agent-to-agent inovadora para processamen
 
 ## 📄 Licença
 
-Desenvolvido pela Manus AI - Sistema Agent-to-Agent para Cálculo de Benefícios.
+Desenvolvido com apoio da Manus AI - Sistema Agent-to-Agent para Cálculo de Benefícios.
 
