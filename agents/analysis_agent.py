@@ -25,9 +25,9 @@ class AnalysisAgent:
             try:
                 # Inicializa o modelo Gemini via LangChain
                 self.llm = ChatGoogleGenerativeAI(
-                    model="gemini-pro",
+                    model="gemini-2.5-flash",
                     google_api_key=self.api_key,
-                    temperature=0.3
+                    temperature=0.0
                 )
             except Exception as e:
                 print(f"Erro ao inicializar Gemini: {e}")

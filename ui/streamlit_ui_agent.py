@@ -279,7 +279,7 @@ class StreamlitUIAgent:
         eligible_df = df[df['Elegivel'] == 'Sim'].copy()
         if not eligible_df.empty:
             # Seleciona colunas relevantes para exibição
-            display_columns = ['Nome', 'Cargo', 'Sindicato', 'Valor_Beneficio_Base', 'Ajuste_Sindicato', 'Valor_Beneficio_Final']
+            display_columns = ['MATRICULA', 'EMPRESA', 'TITULO DO CARGO', 'DESC. SITUACAO', 'Sindicato']
             display_df = eligible_df[display_columns].copy()
             
             # Formata valores monetários
