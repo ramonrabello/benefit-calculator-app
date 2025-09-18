@@ -85,35 +85,24 @@ class DataProcessorAgent:
             
             # Mapeia possíveis variações de nomes de colunas
             column_mapping = {
-                'id_funcionario': 'ID_Funcionario',
-                'idfuncionario': 'ID_Funcionario',
-                'id': 'ID_Funcionario',
-                'nome': 'Nome',
-                'cargo': 'Cargo',
-                'status': 'Status',
-                'sindicato': 'Sindicato',
-                'valor_beneficio_base': 'Valor_Beneficio_Base',
-                'valorbeneficiobase': 'Valor_Beneficio_Base',
-                'valor_base': 'Valor_Beneficio_Base',
-                'data_admissao': 'Data_Admissao',
-                'dataadmissao': 'Data_Admissao',
-                'admissao': 'Data_Admissao',
-                'data_demissao': 'Data_Demissao',
-                'datademissao': 'Data_Demissao',
-                'demissao': 'Data_Demissao'
+                'matricula': 'MATRICULA',
+                'empresa': 'EMPRESA',
+                'titulo_cargo': 'TITULO DO CARGO',
+                'desc_situacao': 'DESC. SITUACAO',
+                'sindicato': 'Sindicato'
             }
             
             # Renomeia as colunas (case-insensitive)
-            df_copy.columns = [column_mapping.get(col.lower(), col) for col in df_copy.columns]
+            df_copy.columns = [column_mapping.get(str(col).lower(), col) for col in df_copy.columns]
             
             standardized_dfs.append(df_copy)
         
         # Concatena todos os DataFrames
         unified_df = pd.concat(standardized_dfs, ignore_index=True)
         
-        # Remove duplicatas baseadas no ID_Funcionario, se existir
-        if 'ID_Funcionario' in unified_df.columns:
-            unified_df = unified_df.drop_duplicates(subset=['ID_Funcionario'], keep='first')
+        # Remove duplicatas baseadas na MATRICULA, se existir
+        if 'MATRICULA' in unified_df.columns:
+            unified_df = unified_df.drop_duplicates(subset=['MATRICULA'], keep='first')
         
         return unified_df
     
